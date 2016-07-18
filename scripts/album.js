@@ -29,6 +29,30 @@ var albumPicasso = {
      ]
  };
 
+var albumNirvana = {
+     title: 'Nevermind',
+     artist: 'Nirvana',
+     label: 'DGC Records',
+     year: '1991',
+     albumArtUrl: 'assets/images/album_covers/nevermind.png',
+     songs: [
+         { title: 'Smeels like teen spirit', duration: '5:01' },
+         { title: 'In bloom', duration: '4:15' },
+         { title: 'Come as you are', duration: '3:39'},
+         { title: 'Breed', duration: '3:04' },
+         { title: 'Lithium', duration: '4:17'}
+        /* { title: 'Polly', duration: '2:57' },
+         { title: 'Territorial pissings', duration: '2:23' },
+         { title: 'Drain you', duration: '3:44'},
+         { title: 'Lounge act', duration: '2:37' },
+         { title: 'Stay away', duration: '3:32'}
+         { title: 'On a plain', duration: '3:16' },
+         { title: 'Something in the way, Endless, Nameless', duration: '20.35'}*/
+         
+         //Need to figure out why the code does not work if you add more than 5 songs
+     ]
+ };
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template  =
         '<tr class="album-view-song-item">'
@@ -52,7 +76,7 @@ var setCurrentAlbum = function(album) {
     albumTitle.firstChild.nodeValue = album.title;
     albumArtist.firstChild.nodeValue = album.artist;
     albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
-    albumImage.getAttribute('src', album.albumArtUrl);
+    albumImage.setAttribute('src', album.albumArtUrl);
     
     albumSongList.innerHTML = '';
     
@@ -62,5 +86,20 @@ var setCurrentAlbum = function(album) {
 };
 
 window.onload = function () {
-  setCurrentAlbum(albumPicasso);  
+  setCurrentAlbum(albumMarconi);  
 };
+
+document.getElementsByClassName('album-cover-art')[0].addEventListener("click", clickCover);
+
+function clickCover() {  
+    
+    var artist = document.getElementsByClassName('album-view-artist')[0].firstChild.nodeValue;
+    
+    if (artist == "Nirvana") {
+    setCurrentAlbum(albumMarconi);  
+    } else if (artist == "Guglielmo Marconi"){
+    setCurrentAlbum(albumPicasso);
+    } else {
+    setCurrentAlbum(albumNirvana);
+    }
+}
