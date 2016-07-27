@@ -61,20 +61,6 @@ var setCurrentAlbum = function(album) {
     }
 };
 
-/*var findParentByClassName = function(specElement, specClass) {
-    var parElement = specElement.parentElement;
-    var classyList = specElement.classList;
-    
-    
-    for (var i = 0; i < classyList.legnth; i++){
-        if (parElement.className === specClass) {
-            return parElement;
-        } else
-            parElement += .parentElement;
-        }
-    }
-    
-};*/
 var findParentByClassName = function(element, targetClass) {
     if (element) {
         var currentParent = element.parentElement;
@@ -85,34 +71,6 @@ var findParentByClassName = function(element, targetClass) {
     }
 };
 
-
-/*var getSongItem = function(specElement) {
-    
-    switch(specElement.className) {
-    
-    // list all possible class names for children, parents or siblings of .song-item-number then decide what each should return.
-        
-        case 'ion-play':  //child... need to go up... findParent...
-            return findParentClassName(specElement, '.song-item-number');
-        case 'ion-pause': //child... need to go up... find Parent...
-            return findParentClassName(specElement, '.song-item-number');
-        case 'album-song-button': // child... need to go up... findParent...
-            return findParentClassName(specElement, '.song-item-number');
-        case 'song-item-number':  //this is it... return it
-            return = specElement;            
-        case 'song-item-title': //sibling ...need to go sideways... findParent...album-view... then querySelector for song-item-number
-            return = findParentClassName(specElement,'album-view-song-item').querySelector('.song-item-number');
-        case 'song-item-duration':
-            return = findParentClassName(specElement,'album-view-song-item').querySelector('.song-item-number'); //sibling... same as title
-        case 'album-view-song-item':
-            return specElement.querySelector('.song-item-number'); //parent... need to go down... querySelector
-            
-        default:
-            return;
-            
-    }
-    
-};*/
 
 var getSongItem = function(element) {
     switch (element.className) {
